@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/food_detail.css') }}">
+<div class="food-detail-image-container">
+    <img src="{{ url_for('static', filename=food.image_path) }}" alt="{{ food.name }}" class="food-detail-image">
+</div>
+<div class="food-detail-text">
+    <h2>{{ food.name }}</h2>
+    <p>{{ food.description }}</p>
+    <p>Delivery Time: {{ food.delivery_time }}</p>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+    <button id="buy-button">Купить</button>
+</div>
+<div id="map" style="height: 500px; width: 100%;"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script>
+    // Передача значения food.id в JavaScript
+    var foodId = {{ food.id }};
+</script>
+<script src="{{ url_for('static', filename='js/food_detail.js') }}"></script>
+{% endblock %}

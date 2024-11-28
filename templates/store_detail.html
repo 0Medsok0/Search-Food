@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ store.name }}</h2>
+<p>{{ store.description }}</p>
+<div class="food-cards">
+    {% for food in foods %}
+    <div class="food-card">
+        <img src="{{ url_for('static', filename=food.image_path) }}" alt="{{ food.name }}">
+        <h3>{{ food.name }}</h3>
+        <p>{{ food.description }}</p>
+        <p>Delivery Time: {{ food.delivery_time }}</p>
+        <a href="{{ url_for('food_detail', food_id=food.id) }}">О продукте</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

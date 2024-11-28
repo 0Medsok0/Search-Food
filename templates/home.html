@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Доступные магазины</h2>
+<div class="store-cards">
+    {% for store in stores %}
+    <div class="store-card">
+        <img src="{{ url_for('static', filename=store.image_path) }}" alt="{{ store.name }}">
+        <h3>{{ store.name }}</h3>
+        <p>{{ store.description }}</p>
+        <a href="{{ url_for('store_detail', store_id=store.id) }}">Перейти в магазин</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
