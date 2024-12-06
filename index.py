@@ -10,8 +10,8 @@ app.config['MAIL_SERVER'] = 'smtp.mail.ru'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'jhon.programmer@bk.ru'
-app.config['MAIL_PASSWORD'] = 'ZVRwmTKgXXNYYJrmm3tc'
+app.config['MAIL_USERNAME'] = 'you-mail'
+app.config['MAIL_PASSWORD'] = 'you-pass'
 
 db = SQLAlchemy(app)
 mail = Mail(app)
@@ -96,7 +96,7 @@ def resume():
     return render_template('resume.html')
 
 def send_email(name, email, message):
-    receiver_email = "jhon.programmer@bk.ru"
+    receiver_email = "you-mail"
     subject = "New Resume Submission"
     body = f"Name: {name}\nEmail: {email}\nMessage: {message}"
 
