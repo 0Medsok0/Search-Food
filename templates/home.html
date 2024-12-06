@@ -1,15 +1,79 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h2>Доступные магазины</h2>
-<div class="store-cards">
-    {% for store in stores %}
-    <div class="store-card">
-        <img src="{{ url_for('static', filename=store.image_path) }}" alt="{{ store.name }}">
-        <h3>{{ store.name }}</h3>
-        <p>{{ store.description }}</p>
-        <a href="{{ url_for('store_detail', store_id=store.id) }}">Перейти в магазин</a>
-    </div>
-    {% endfor %}
+{% extends 'base.html' %} {% block content %}
+<div class="cover">
+  <h1>Добро пожаловать в наш магазин!</h1>
+  <p>Здесь вы найдете лучшие продукты и магазины.</p>
 </div>
+
+<h2>Товары по акции</h2>
+<div class="food-cards">
+  {% for store in stores %} {% for food in store.foods[:1] %}
+  <div class="food-card">
+    <img
+      src="{{ url_for('static', filename=food.image_path) }}"
+      alt="{{ food.name }}"
+    />
+    <h3>{{ food.name }}</h3>
+    <p>Время доставки: {{ food.delivery_time }}</p>
+    <a href="{{ url_for('food_detail', food_id=food.id) }}">О продукте</a><br />
+    <a href="{{ url_for('store_detail', store_id=store.id) }}"
+      >Перейти в магазин</a
+    >
+  </div>
+  {% endfor %} {% endfor %}
+</div>
+
+<h2>Лучшие магазины</h2>
+<div class="store-cards">
+  {% for store in stores %}
+  <div class="store-card">
+    <img
+      src="{{ url_for('static', filename=store.image_path) }}"
+      alt="{{ store.name }}"
+    />
+    <h3>{{ store.name }}</h3>
+
+    <a href="{{ url_for('store_detail', store_id=store.id) }}"
+      >Перейти в магазин</a
+    >
+  </div>
+  {% endfor %}
+</div>
+
+<div class="sh-fd">
+  <div class="card">
+    <button type="button" class="button" data-category="fruits_vegetables">
+      Овощи и фрукты
+    </button>
+    <button type="button" class="button" data-category="fast_food">
+      Фастфуд
+    </button>
+    <button type="button" class="button" data-category="georgian_cuisine">
+      Грузинская кухня
+    </button>
+    <button type="button" class="button" data-category="drinks">Напитки</button>
+    <button type="button" class="button" data-category="dairy">
+      Молочные изделия
+    </button>
+    <button type="button" class="button" data-category="groceries">
+      Бакалея
+    </button>
+  </div>
+
+  <div class="products" id="products">
+    {% for store in stores %} {% for food in store.foods%}
+    <div class="product" data-category="{{ food.category }}">
+      <h3>{{ food.name }}</h3>
+      <p>{{ food.description }}</p>
+      <img
+        src="{{ url_for('static', filename=food.image_path) }}"
+        alt="{{ food.name }}"
+        width="100"
+      />
+    </div>
+    {% endfor %} {% endfor %}
+  </div>
+
+  <script src="{{ url_for('static', filename='js/sort_product.js') }}"></script>
+</div>
+
 {% endblock %}
