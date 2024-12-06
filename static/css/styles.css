@@ -1,103 +1,242 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f8f9fa;
-    color: #333;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+h2{
+  text-align: center;
+  margin-top: 2.5%;
 }
 
 header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 1em 0;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  background-color: #333;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1 30px; /* Add padding to the sides */
+}
+
+header .logo img {
+  width: 50px;
+  height: 50px;
+  margin-left: 25px;
+  border: 2px solid #333;
+  border-radius: 50%;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2em;
+  margin: 0;
+  font-size: 2em;
 }
 
 nav {
-    margin-top: 10px;
+  padding: 25px;
+  margin-top: 0; /* Remove top margin */
+  text-align: right;
 }
 
 nav a {
-    margin: 0 1em;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  margin: 0 1em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #ffc107;
+  color: #ffc107;
+}
+
+.footer-nav {
+  text-align: center;
 }
 
 main {
-    padding-top: 100px; /* Высота header */
-    padding-bottom: 50px; /* Высота footer */
+  padding-top: 100px; /* Высота header */
+  padding-bottom: 200px;
 }
 
-.store-cards, .food-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: center;
-    margin-top: 20px;
+.cover {
+  background-color: #ece90f;
+  color: #333;
+  padding: 3em 0;
+  text-align: center;
+  margin-bottom: 2em;
 }
 
-.store-card, .food-card {
-    border: 1px solid #ddd;
-    padding: 1em;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+.cover h1 {
+  margin: 0;
+  font-size: 3em;
 }
 
-.store-card:hover, .food-card:hover {
-    transform: scale(1.05);
+.cover p {
+  font-size: 1.5em;
 }
 
-.store-card img, .food-card img {
-    width: 100%;
-    height: 150px; /* Фиксированная высота для всех изображений */
-    object-fit: cover; /* Обрезает изображение, чтобы оно заполняло всю область */
-    border-bottom: 1px solid #ddd;
-    border-radius: 10px 10px 0 0;
+.store-cards,
+.food-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.store-card,
+.food-card {
+  border: 1px solid #ddd;
+  padding: 1em;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.store-card:hover,
+.food-card:hover {
+  transform: scale(1.05);
+}
+
+.store-card img,
+.food-card img {
+  width: 100%;
+  height: 150px; /* Фиксированная высота для всех изображений */
+  object-fit: cover; /* Обрезает изображение, чтобы оно заполняло всю область */
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px 10px 0 0;
 }
 
 footer {
-    background-color: #007bff;
-    color: #fff;
-    padding: 1em 0;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 1000;
+  background-color: #333;
+  color: #fff;
+  padding: 2px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
 }
 
 footer nav a {
-    margin: 0 1em;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  margin: 0 1em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 footer nav a:hover {
-    color: #ffc107;
+  color: #ffc107;
+}
+
+/* Поиск еды -- Сортировка */
+
+.sh-fd {
+  padding: 20px;
+  margin-top: 25px;
+}
+
+/* Стили для кнопок */
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ece90f;
+  color: #333;
+}
+
+/* Стили для карточек продуктов */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  width: calc(20% - 40px); /* 5 карточек в ряд */
+  box-sizing: border-box;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.product p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.product img {
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 8px;
+}
+
+/* Стили для кнопки "Показать еще" */
+.show-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-more:hover {
+  background-color: #ece90f;
+  color: #333;
 }
