@@ -3,7 +3,11 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/food_detail.css') }}">
 <div class="food-detail-image-container">
+    {% if food.image_path %}
     <img src="{{ url_for('static', filename=food.image_path) }}" alt="{{ food.name }}" class="food-detail-image">
+    {% else %}
+    <p>Изображение недоступно</p>
+    {% endif %}
 </div>
 <div class="food-detail-text">
     <h2>{{ food.name }}</h2>
